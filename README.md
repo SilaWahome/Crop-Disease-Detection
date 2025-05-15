@@ -1,4 +1,4 @@
-# 🌾 Crop and Detection Tool – by M-KOOLIMA
+# 🌾 CROP DISEASE AND DIAGNOSIS TOOL – by M-KOOLIMA
 
 Welcome to the **Crop and Detection Tool**, a smart assistant for farmers built to empower modern-day *wakulima* with AI-driven crop identification and real-time insights. Whether you're identifying crops via image or accessing accurate weather and farming recommendations, this tool helps farmers make smarter decisions — the **KOOL** way.
 

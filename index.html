@@ -72,7 +72,8 @@
       display: none;
     }
 
-    #imageInput {
+    #imageInput,
+    #cameraInput {
       display: none;
     }
 
@@ -151,10 +152,14 @@
 
     <div id="weather"></div>
 
-    <!-- Image Upload -->
+    <!-- Image Upload + Camera -->
     <div id="uploader">
-      <label class="btn" for="imageInput">Upload Image</label>
+      <label class="btn" for="imageInput">📂 Upload Image</label>
       <input type="file" id="imageInput" accept="image/*">
+
+      <label class="btn" for="cameraInput">📷 Use Camera</label>
+      <input type="file" id="cameraInput" accept="image/*" capture="environment">
+
       <button id="detectBtn" class="btn" onclick="submitImage()">Detect</button>
       <div class="loader" id="loader"></div>
       <img id="preview" src="#" alt="Image Preview">
@@ -211,7 +216,7 @@
         });
     }
 
-    document.getElementById("imageInput").addEventListener("change", function (event) {
+    function handleImageSelection(event) {
       const file = event.target.files[0];
       if (!file) return;
       const reader = new FileReader();
@@ -223,11 +228,14 @@
         document.getElementById("detectBtn").style.display = "inline-block";
       };
       reader.readAsDataURL(file);
-    });
+    }
+
+    document.getElementById("imageInput").addEventListener("change", handleImageSelection);
+    document.getElementById("cameraInput").addEventListener("change", handleImageSelection);
 
     async function submitImage() {
       if (!base64Image) {
-        alert("Please select an image first.");
+        alert("Please select or capture an image first.");
         return;
       }
 
